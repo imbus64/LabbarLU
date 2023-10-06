@@ -12,4 +12,4 @@ plugins {
 }
 
 rootProject.name = "LabbarLU"
-include("app")
+include("EITG01-Lab1", "EITG01-Lab2")
