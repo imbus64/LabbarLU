@@ -4,7 +4,6 @@ import java.io.*;
 
 //Denna klass �rver Global s� att man kan anv�nda time och signalnamnen utan punktnotation
 public class MainSimulation extends Global {
-
 	public static void main(String[] args) throws IOException {
 
 		// Signallistan startas och actSignal deklareras. actSignal �r den senast

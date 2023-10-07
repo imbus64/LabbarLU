@@ -9,22 +9,16 @@ class QS extends Proc {
 
 			case ARRIVAL -> {
 				numberInQueue++;
-				if (numberInQueue == 1) {
-					SignalList.SendSignal(READY, this, time + 0.2 * rn.nextDouble());
-				}
+				if (numberInQueue == 1) SignalList.SendSignal(READY, this, time + 0.2 * rn.nextDouble());
 			}
 			case READY -> {
 				numberInQueue--;
-				if (sendTo != null) {
-					SignalList.SendSignal(ARRIVAL, sendTo, time);
-				}
-				if (numberInQueue > 0) {
-					SignalList.SendSignal(READY, this, time + 0.2 * rn.nextDouble());
-				}
+				if (sendTo != null) SignalList.SendSignal(ARRIVAL, sendTo, time);
+				if (numberInQueue > 0) SignalList.SendSignal(READY, this, time + 0.2 * rn.nextDouble());
 			}
 			case MEASURE -> {
 				noMeasurements++;
-				accumulated = accumulated + numberInQueue;
+				accumulated += numberInQueue;
 				SignalList.SendSignal(MEASURE, this, time + 2 * rn.nextDouble());
 			}
 		}
