@@ -1,3 +1,5 @@
+package labs;
+
 public class EventList{
 	
 	private Event list, last;

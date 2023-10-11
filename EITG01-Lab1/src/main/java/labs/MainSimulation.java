@@ -1,8 +1,8 @@
+package labs;
+
 import java.io.*;
 
-
 public class MainSimulation extends GlobalSimulation{
- 
     public static void main(String[] args) throws IOException {
     	Event actEvent;
     	EventList myEventList = new EventList();

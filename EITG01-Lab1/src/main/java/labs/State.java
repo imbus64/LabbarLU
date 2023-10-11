@@ -1,3 +1,5 @@
+package labs;
+
 import java.util.*;
 
 class State extends GlobalSimulation{
