@@ -1,5 +1,3 @@
-package labs;
-
 public class EventList{
 	
 	private Event list, last;
@@ -13,6 +11,7 @@ public class EventList{
 	public void InsertEvent(int type, double TimeOfEvent){
  	Event dummy, predummy;
  	Event newEvent = new Event();
+	// newEvent.subEventType = subType;
  	newEvent.eventType = type;
  	newEvent.eventTime = TimeOfEvent;
  	predummy = list;
