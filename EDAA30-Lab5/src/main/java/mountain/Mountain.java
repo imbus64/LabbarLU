@@ -51,7 +51,7 @@ public class Mountain extends Fractal {
 	 * 
 	 * @param side
 	 * @param dev
-	 * @return
+	 * @return the midpoint of the side
 	 */
 	private Point getMidPoint(Side side, double dev) {
 		if (sideMap.containsKey(side)) {
@@ -65,8 +65,15 @@ public class Mountain extends Fractal {
 		}
 	}
 
-	/*
+	/**
 	 * Reursive method: Draws a recursive triangle.
+	 * 
+	 * @param turtle the turtle graphic object
+	 * @param order  the current order
+	 * @param dev    the current deviation
+	 * @param a      the point for the first corner
+	 * @param b      the point for the second corner
+	 * @param c      the point for the third corner
 	 */
 	private void fractalTriangle(TurtleGraphics turtle, int order, double dev, Point a, Point b, Point c) {
 		if (order == 0) {
