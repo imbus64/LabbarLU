@@ -27,6 +27,8 @@ build
 hs_err_pid*
 replay_pid*
 
+.vscode
+
 .gradle
 **/build/
 !src/**/build/
