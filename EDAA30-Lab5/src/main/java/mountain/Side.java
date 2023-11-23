@@ -20,4 +20,14 @@ public class Side {
     public int hashCode() {
         return a.hashCode() + b.hashCode();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Side) {
+            Side s = (Side) obj;
+            return (a.equals(s.a) && b.equals(s.b)) || (a.equals(s.b) && b.equals(s.a));
+        } else {
+            return false;
+        }
+    }
 }
