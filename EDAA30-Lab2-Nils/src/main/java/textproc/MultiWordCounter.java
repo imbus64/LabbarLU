@@ -24,5 +24,4 @@ public class MultiWordCounter implements TextProcessor {
 			System.out.println(name + ": " + map.get(name));
 		}
 	}
-
 }

@@ -45,11 +45,9 @@ public class GeneralWordCounter implements TextProcessor {
 	}
 
 	public List<Map.Entry<String, Integer>> getWordList() {
-
 		Set<Map.Entry<String, Integer>> wordSet = map.entrySet();
 		List<Map.Entry<String, Integer>> wordList = new ArrayList<>(wordSet);
 
 		return wordList;
-
 	}
 }
