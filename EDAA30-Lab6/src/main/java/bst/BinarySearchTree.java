@@ -4,15 +4,21 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class BinarySearchTree<E> {
-	BinaryNode<E> root; // Används också i BSTVisaulizer
+	BinaryNode<E> root = null; // Används också i BSTVisaulizer
 	int size; // Används också i BSTVisaulizer
 	private Comparator<E> ccomparator;
+
+	public static void main(String[] args) {
+		self.drawTree();
+		self.printTree();
+	}
 
 	/**
 	 * Constructs an empty binary search tree.
 	 */
 	public BinarySearchTree() {
-
+		root = null;
+		ccomparator = null;
 	}
 
 	/**
@@ -20,7 +26,8 @@ public class BinarySearchTree<E> {
 	 * comparator.
 	 */
 	public BinarySearchTree(Comparator<E> comparator) {
-
+		root = null;
+		this.ccomparator = comparator;
 	}
 
 	/**
@@ -30,7 +37,32 @@ public class BinarySearchTree<E> {
 	 * @return true if the the element was inserted
 	 */
 	public boolean add(E x) {
-		return false;
+		return add(root, x);
+	}
+
+	private boolean add(BinaryNode<E> n, E x) {
+		if (n == null) {
+			root = new BinaryNode<E>(x);
+			return true;
+		}
+		int compareResult = compare(x, n.element);
+		if (compareResult < 0) {
+			if (n.left == null) {
+				n.left = new BinaryNode<E>(x);
+				return true;
+			} else {
+				return add(n.left, x);
+			}
+		} else if (compareResult > 0) {
+			if (n.right == null) {
+				n.right = new BinaryNode<E>(x);
+				return true;
+			} else {
+				return add(n.right, x);
+			}
+		} else {
+			return false;
+		}
 	}
 
 	/**
@@ -39,7 +71,7 @@ public class BinarySearchTree<E> {
 	 * @return the height of the tree
 	 */
 	public int height() {
-		return 0;
+		return height(root);
 	}
 
 	/**
@@ -48,21 +80,21 @@ public class BinarySearchTree<E> {
 	 * @return the number of elements in this tree
 	 */
 	public int size() {
-		return 0;
+		return size;
 	}
 
 	/**
 	 * Removes all of the elements from this list.
 	 */
 	public void clear() {
-
+		root = null;
+		size = 0;
 	}
 
 	/**
 	 * Print tree contents in inorder.
 	 */
 	public void printTree() {
-
 	}
 
 	/**
@@ -86,7 +118,10 @@ public class BinarySearchTree<E> {
 	 * Returns the root of tree.
 	 */
 	private BinaryNode<E> buildTree(ArrayList<E> sorted, int first, int last) {
-		return null;
+		for(E e : sorted) {
+			add(e);
+		}
+		return root;
 	}
 
 	static class BinaryNode<E> {
