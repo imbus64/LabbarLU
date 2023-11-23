@@ -84,7 +84,6 @@ public class Mountain extends Fractal {
 			turtle.forwardTo(a.getX(), a.getY());
 			turtle.penUp();
 		} else {
-
 			Side ab = new Side(a, b);
 			Side bc = new Side(b, c);
 			Side ca = new Side(c, a);

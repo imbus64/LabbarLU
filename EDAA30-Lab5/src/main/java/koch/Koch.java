@@ -50,5 +50,4 @@ public class Koch extends Fractal {
 			fractalLine(turtle, order - 1, length / 3, alpha);
 		}
 	}
-
 }
