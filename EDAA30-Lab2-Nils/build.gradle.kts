@@ -40,5 +40,6 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("lpt.TestScheduler")
+    // mainClass.set("lpt.TestScheduler")
+    mainClass.set("textproc.Holgersson")
 }
