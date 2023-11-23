@@ -2,7 +2,6 @@ package textproc;
 
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.HashMap;
 
 public class MultiWordCounter implements TextProcessor{
 	private Map<String, Integer> map = new TreeMap<String, Integer>();
