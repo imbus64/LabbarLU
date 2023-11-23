@@ -18,23 +18,23 @@ public class Holgersson {
 		long time1 = System.nanoTime();
 		ArrayList<TextProcessor> wordList = new ArrayList<>();
 		Set<String> nonCountedWords = new HashSet<String>();
-		
+
 		wordList.add(new SingleWordCounter("nils"));
 		wordList.add(new SingleWordCounter("norge"));
 		wordList.add(new MultiWordCounter(REGIONS));
 		wordList.add(new GeneralWordCounter(nonCountedWords));
-		
+
 		Scanner s = new Scanner(new File("nilsholg.txt"));
 		s.findWithinHorizon("\uFEFF", 1);
 		s.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+"); // se handledning
 		Scanner undantag = new Scanner(new File("undantagsord.txt"));
 		undantag.useDelimiter(" ");
-		
-		while(undantag.hasNext()) {
+
+		while (undantag.hasNext()) {
 			String word = undantag.next().toLowerCase();
 			nonCountedWords.add(word);
 		}
-		
+
 		while (s.hasNext()) {
 			String word = s.next().toLowerCase();
 			for (int i = 0; i < wordList.size(); i++) {
@@ -44,12 +44,12 @@ public class Holgersson {
 
 		s.close();
 		undantag.close();
-		
-		for(int i = 0; i < wordList.size(); i++) {
+
+		for (int i = 0; i < wordList.size(); i++) {
 			wordList.get(i).report();
 		}
-		
+
 		long time2 = System.nanoTime();
-		System.out.println("Tid: " + (time2 - time1)/ + 1000000000.0 + " sekunder");
+		System.out.println("Tid: " + (time2 - time1) / +1000000000.0 + " sekunder");
 	}
 }
