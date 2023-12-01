@@ -1,0 +1,11 @@
+F1
+a) 10, 20 , 30, 47
+b) 3
+c) 4
+
+F2
+a) 0, 1 + Math.max(vänsterHöjd, högerHöjd)
+b) Math.max
+
+F3
+a) int mid = first + (last - first)/2

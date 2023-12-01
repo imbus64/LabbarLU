@@ -1,0 +1,8 @@
+• I vissa av de uppgifter du löst (t ex height och add) finns det en publik metod som
+anropar motsvarande rekursiva metod. Varför behövs bägge metoderna?
+Svar: Den publika metoden fungerar som en gränssnittsfunktion för användaren och ger tillgång till det övergripande trädet. Den kallar på den rekursiva metoden för att utföra operationer på trädet. Den rekursiva metoden utför arbete internt och används för att hantera de olika fallen och navigera genom trädet.
+
+• I samband med ombyggnaden av trädet används en lista av typen ArrayList för att
+mellanlagra elementen. Skulle man lika gärna kunna använda en LinkedList?
+Svar: Ja, testade också. Är nog bättre vid ombyggnad då insättningar och borttagningar är
+mer effektivt i LinkedList.
