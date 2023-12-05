@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class BinarySearchTree<T> {
+public class BinarySearchTree<T extends Comparable<T>> {
     public BinaryNode<T> root = null; // Root node of the binary search tree
     private Comparator<T> comparator = null;
     private int size = 0; // Number of elements in the tree
@@ -13,7 +13,7 @@ public class BinarySearchTree<T> {
      * Constructs an empty binary search tree.
      */
     public BinarySearchTree() {
-        this((Comparator<T>) Comparator.naturalOrder());// Some seriously slippery stuff
+        this(Comparator.naturalOrder());
     }
 
     /**
