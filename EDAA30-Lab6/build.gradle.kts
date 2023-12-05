@@ -40,5 +40,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("bst.BinarySearchTree")
+    mainClass.set("bst.Main")
 }
