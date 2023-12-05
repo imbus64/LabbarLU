@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.Random;
 
 public class BinarySearchTree<E> {
-    public BinaryNode<E> root; // Root node of the binary search tree
-    int size; // Number of elements in the tree
-    private Comparator<E> comparator; // Comparator to determine the order of elements
-    private ArrayList<E> list; // List to store elements during tree rebuilding
+    public BinaryNode<E> root = null; // Root node of the binary search tree
+    private int size = 0; // Number of elements in the tree
+    private Comparator<E> comparator = null; // Comparator to determine the order of elements
+    private ArrayList<E> list = null; // List to store elements during tree rebuilding
 
     /**
      * Constructs an empty binary search tree.
      */
     public BinarySearchTree() {
-
+        this(null);
     }
 
     /**
@@ -151,7 +151,11 @@ public class BinarySearchTree<E> {
         inorderTraversal(root);
     }
 
-    // Private recursive method for inorder traversal
+    /**
+     * Private recursive method for inorder traversal.
+     * 
+     * @param node the root of the current subtree
+     */
     private void inorderTraversal(BinaryNode<E> node) {
         if (node != null) {
             // Traverse left subtree
@@ -173,9 +177,12 @@ public class BinarySearchTree<E> {
         root = buildTree(list, 0, list.size() - 1); // Build a balanced tree from the list
     }
 
-    /*
+    /**
      * Adds all elements from the tree rooted at 'root' in inorder to the list
      * sorted.
+     * 
+     * @param root   the root of the current subtree
+     * @param sorted the list to store the elements
      */
     private void toArray(BinaryNode<E> root, List<E> sorted) {
         if (root != null) {
@@ -185,10 +192,14 @@ public class BinarySearchTree<E> {
         }
     }
 
-    /*
+    /**
      * Builds a complete tree from the elements from position first to last in the
      * list sorted. Elements in the list a are assumed to be in ascending order.
      * Returns the root of tree.
+     * 
+     * @param sorted the list storing the elements
+     * @param first  the starting index of the sublist
+     * @param last   the ending index of the sublist
      */
     private BinaryNode<E> buildTree(ArrayList<E> sorted, int first, int last) {
         // Base case: If the starting index is greater than the ending index, the
@@ -213,6 +224,9 @@ public class BinarySearchTree<E> {
         return temp;
     }
 
+    /**
+     * Static nested class for the nodes of the binary search tree.
+     */
     static class BinaryNode<E> {
         E element; // Data stored in the node
         BinaryNode<E> left; // Left child
@@ -224,7 +238,7 @@ public class BinarySearchTree<E> {
     }
 
     public static void main(String[] args) {
-        BSTVisualizer visualizer = new BSTVisualizer("D7", 500, 500);
+        // BSTVisualizer visualizer = new BSTVisualizer("D7", 500, 500);
         BinarySearchTree<Integer> tree = new BinarySearchTree<>();
         Random rand = new Random();
 
@@ -233,7 +247,7 @@ public class BinarySearchTree<E> {
             tree.add(rand.nextInt(100) + 1);
         }
 
-        visualizer.drawTree(tree);
+        // visualizer.drawTree(tree);
         tree.printTree();
         // D6
         // BinarySearchTree<Integer> skewedTree = createSkewedTree();
@@ -249,6 +263,11 @@ public class BinarySearchTree<E> {
     }
 
     // All the remaining methods are used for D6
+    /**
+     * Creates a skewed tree.
+     * 
+     * @return a BinarySearchTree object
+     */
     private static BinarySearchTree<Integer> createSkewedTree() {
         BinarySearchTree<Integer> skewedTree = new BinarySearchTree<>();
         skewedTree.add(5);
@@ -261,6 +280,11 @@ public class BinarySearchTree<E> {
         return skewedTree;
     }
 
+    /**
+     * Creates a balanced tree.
+     * 
+     * @return a BinarySearchTree object
+     */
     private static BinarySearchTree<Integer> createBalancedTree() {
         BinarySearchTree<Integer> balancedTree = new BinarySearchTree<>();
         balancedTree.add(3);
@@ -274,9 +298,13 @@ public class BinarySearchTree<E> {
         return balancedTree;
     }
 
+    /**
+     * Draws the specified tree.
+     * 
+     * @param bst the BinarySearchTree object to be drawn
+     */
     private static void drawTree(BinarySearchTree<?> bst) {
         BSTVisualizer visualizer = new BSTVisualizer("Binary Search Tree Visualizer", 800, 600);
         visualizer.drawTree(bst);
     }
-
 }
